@@ -1,0 +1,33 @@
+# /etc/conf.d/youngseokcoind: config file for /etc/init.d/youngseokcoind
+
+# Config file location
+#YOUNGSEOKCOIND_CONFIGFILE="/etc/youngseokcoin/youngseokcoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $YOUNGSEOKCOIND_USER)
+#YOUNGSEOKCOIND_PIDDIR="/var/run/youngseokcoind"
+
+# What filename to give the pidfile
+#YOUNGSEOKCOIND_PIDFILE="${YOUNGSEOKCOIND_PIDDIR}/youngseokcoind.pid"
+
+# Where to write youngseokcoind data (be mindful that the blockchain is large)
+#YOUNGSEOKCOIND_DATADIR="/var/lib/youngseokcoind"
+
+# User and group to own youngseokcoind process
+#YOUNGSEOKCOIND_USER="youngseokcoin"
+#YOUNGSEOKCOIND_GROUP="youngseokcoin"
+
+# Path to youngseokcoind executable
+#YOUNGSEOKCOIND_BIN="/usr/bin/youngseokcoind"
+
+# Nice value to run youngseokcoind under
+#YOUNGSEOKCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#YOUNGSEOKCOIND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for youngseokcoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+YOUNGSEOKCOIND_SIGTERM_TIMEOUT=60

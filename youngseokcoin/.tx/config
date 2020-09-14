@@ -1,0 +1,7 @@
+[main]
+host = https://www.transifex.com
+
+[youngseokcoin.qt-translation-014x]
+file_filter = src/qt/locale/youngseokcoin_<lang>.ts
+source_file = src/qt/locale/youngseokcoin_en.ts
+source_lang = en

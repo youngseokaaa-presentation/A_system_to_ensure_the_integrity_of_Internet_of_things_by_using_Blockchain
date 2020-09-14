@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Youngseokcoin Core
+Comment=Connect to the Youngseokcoin P2P Network
+Comment[de]=Verbinde mit dem Youngseokcoin peer-to-peer Netzwerk
+Comment[fr]=Youngseokcoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Youngseokcoin, eşten eşe kriptografik sanal para birimi
+Exec=youngseokcoin-qt %u
+Terminal=false
+Type=Application
+Icon=youngseokcoin128
+MimeType=x-scheme-handler/youngseokcoin;
+Categories=Office;Finance;

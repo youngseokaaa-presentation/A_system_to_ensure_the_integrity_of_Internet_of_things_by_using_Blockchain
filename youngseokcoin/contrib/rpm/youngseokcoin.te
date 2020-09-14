@@ -1,0 +1,81 @@
+policy_module(youngseokcoin, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type youngseokcoin_t;
+type youngseokcoin_exec_t;
+init_daemon_domain(youngseokcoin_t, youngseokcoin_exec_t)
+
+permissive youngseokcoin_t;
+
+type youngseokcoin_initrc_exec_t;
+init_script_file(youngseokcoin_initrc_exec_t)
+
+type youngseokcoin_conf_t;
+files_type(youngseokcoin_conf_t)
+
+type youngseokcoin_var_lib_t;
+files_type(youngseokcoin_var_lib_t)
+
+type youngseokcoin_var_run_t;
+files_type(youngseokcoin_var_run_t)
+
+type youngseokcoin_port_t;
+corenet_port(youngseokcoin_port_t)
+
+########################################
+#
+# youngseokcoin local policy
+#
+allow youngseokcoin_t self:process { fork };
+
+allow youngseokcoin_t self:fifo_file rw_fifo_file_perms;
+allow youngseokcoin_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(youngseokcoin_t, youngseokcoin_conf_t, youngseokcoin_conf_t)
+manage_files_pattern(youngseokcoin_t, youngseokcoin_conf_t, youngseokcoin_conf_t)
+
+manage_dirs_pattern(youngseokcoin_t, youngseokcoin_var_lib_t, youngseokcoin_var_lib_t)
+manage_files_pattern(youngseokcoin_t, youngseokcoin_var_lib_t, youngseokcoin_var_lib_t)
+files_var_lib_filetrans(youngseokcoin_t, youngseokcoin_var_lib_t, { dir file })
+
+manage_dirs_pattern(youngseokcoin_t, youngseokcoin_var_run_t, youngseokcoin_var_run_t)
+manage_files_pattern(youngseokcoin_t, youngseokcoin_var_run_t, youngseokcoin_var_run_t)
+
+sysnet_dns_name_resolve(youngseokcoin_t)
+corenet_all_recvfrom_unlabeled(youngseokcoin_t)
+
+allow youngseokcoin_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(youngseokcoin_t)
+corenet_tcp_sendrecv_generic_node(youngseokcoin_t)
+corenet_tcp_sendrecv_all_ports(youngseokcoin_t)
+corenet_tcp_bind_generic_node(youngseokcoin_t)
+
+gen_require(`
+    type youngseokcoin_port_t;
+')
+allow youngseokcoin_t youngseokcoin_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type youngseokcoin_port_t;
+')
+allow youngseokcoin_t youngseokcoin_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(youngseokcoin_t)
+
+files_read_etc_files(youngseokcoin_t)
+
+miscfiles_read_localization(youngseokcoin_t)
+
+sysnet_dns_name_resolve(youngseokcoin_t)
+
+allow youngseokcoin_t youngseokcoin_exec_t:file execute_no_trans;
+allow youngseokcoin_t self:process setsched;
+corecmd_exec_ls(youngseokcoin_t)
+corenet_tcp_connect_http_port(youngseokcoin_t)
+dev_read_urand(youngseokcoin_t)
+fs_getattr_xattr_fs(youngseokcoin_t)
+kernel_read_system_state(youngseokcoin_t)

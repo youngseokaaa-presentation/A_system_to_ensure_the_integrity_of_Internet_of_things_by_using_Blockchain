@@ -1,0 +1,8 @@
+/usr/bin/youngseokcoin-cli		--	gen_context(system_u:object_r:youngseokcoin_exec_t,s0)
+/usr/sbin/youngseokcoind		--	gen_context(system_u:object_r:youngseokcoin_exec_t,s0)
+/usr/lib(64)?/youngseokcoin/youngseokcoind		--	gen_context(system_u:object_r:youngseokcoin_exec_t,s0)
+
+/etc/youngseokcoin(/.*)?		gen_context(system_u:object_r:youngseokcoin_conf_t,s0)
+/var/lib/youngseokcoin(/.*)?		gen_context(system_u:object_r:youngseokcoin_var_lib_t,s0)
+
+(/var)?/run/youngseokcoind(/.*)?   gen_context(system_u:object_r:youngseokcoin_var_run_t,s0)

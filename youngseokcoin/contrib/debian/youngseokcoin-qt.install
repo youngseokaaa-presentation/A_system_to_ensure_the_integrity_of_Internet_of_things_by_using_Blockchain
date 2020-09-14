@@ -1,0 +1,6 @@
+usr/local/bin/youngseokcoin-qt usr/bin
+share/pixmaps/youngseokcoin32.xpm usr/share/pixmaps
+share/pixmaps/youngseokcoin16.xpm usr/share/pixmaps
+share/pixmaps/youngseokcoin128.png usr/share/pixmaps
+debian/youngseokcoin-qt.desktop usr/share/applications
+debian/youngseokcoin-qt.protocol usr/share/kde4/services/

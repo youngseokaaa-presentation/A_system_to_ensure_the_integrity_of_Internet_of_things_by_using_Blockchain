@@ -1,0 +1,44 @@
+
+
+1DSP1mHuv7ZR9tmiHdVKjtNwiWLfAwrfBK
+
+
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3 git
+
+sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
+
+sudo apt-get install libboost-all-dev
+
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo apt-get update
+sudo apt-get install libdb4.8-dev libdb4.8++-dev
+sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler qt5-default
+
+git clone https://github.com/youngseoka/youngseokcoin.git
+
+./autogen.sh
+./configure --with-gui=qt5 --enable-debug --disable-tests
+make
+sudo make install 
+
+
+
+conf
+server=1
+rpcuser=youngseok_ban?
+rpcpassword=youngseok_ban?pass
+rpcallowip=192.168.0.0/16
+addnode=
+
+
+cpuminer
+./minerd -o http://127.0.0.1:8486 -u youngseok1 -p youngseok1 -a sha256d --no-longpoll --no-getwork --no-stratum --coinbase-addr=1KbqohYN8c3zs9rYLrTJeq2zAb5kqgiYuw
+
+
+
+
+
